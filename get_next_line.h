@@ -14,10 +14,10 @@
 # define GET_NEXT_LINE_H
 # define BUFFER_SIZE 10
 
-#include <string.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
+# include <string.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
 
 char	*get_next_line(int fd);
 size_t	ft_strlen(char *s);
