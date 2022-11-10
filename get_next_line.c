@@ -14,30 +14,27 @@
 
 char	*ft_line(char *str, int fd)
 {
-	char	*BUFF;
-	int i = 1;
+	char	*s;
+	int		i;
 
-	BUFF = malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!BUFF)
-			return (NULL);
+	i = 1;
+	s = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!s)
+		return (NULL);
 	while (ft_strchr(str) == 0 && i != 0)
 	{
-
-		i = read(fd, BUFF, BUFFER_SIZE);
-		BUFF[i]=0;
-		str = ft_strjoin(str, BUFF);
-
-		//printf("%s",str);
-		//free(BUFF);
+		i = read(fd, s, BUFFER_SIZE);
+		s[i] = 0;
+		str = ft_strjoin(str, s);
 	}
-	free(BUFF);
+	free(s);
 	return (str);
 }
 
- char	*ft_spliter(char *str)
+char	*ft_spliter(char *str)
 {
 	int		i;
-	char *line;
+	char	*line;
 
 	i = 0;
 	if (!str)
@@ -65,7 +62,7 @@ char	*ft_line(char *str, int fd)
 char	*ft_first(char *line)
 {
 	char	*str;
-	size_t 	i;
+	size_t	i;
 	size_t	j;
 
 	i = 0;

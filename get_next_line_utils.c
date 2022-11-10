@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(char *s)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])
@@ -22,19 +22,37 @@ size_t	ft_strlen(char *s)
 	return (i);
 }
 
+char	*ft_strdup(const char *s)
+{
+	size_t	len;
+	size_t	i;
+	char	*str;
 
+	len = ft_strlen((char *)s);
+	str = malloc(sizeof(char) * (len + 1));
+	i = 0;
+	if (!str)
+		return (0);
+	while (s[i])
+	{
+		str[i] = s[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	size_t 	lens1;
-	size_t 	lens2;
+	size_t	lens1;
+	size_t	lens2;
 	size_t	i;
 	char	*str;
 
 	if (!s1)
-		return(strdup((const char *)s2));
+		return (ft_strdup((const char *)s2));
 	if (!s2)
-		return NULL;
+		return (NULL);
 	lens1 = ft_strlen(s1);
 	lens2 = ft_strlen(s2);
 	str = malloc(sizeof(char) * (lens1 + lens2 + 1));
@@ -49,7 +67,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	str[lens1 + i] = '\0';
 	free (s1);
 	return (str);
-
 }
 
 int	ft_strchr(char *s)
@@ -67,5 +84,5 @@ int	ft_strchr(char *s)
 	}
 	if (s[i] == '\0')
 		return (0);
-		return 0;
+	return (0);
 }
