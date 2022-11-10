@@ -23,6 +23,7 @@ size_t	ft_strlen(char *s)
 }
 
 
+
 char	*ft_strjoin(char *s1, char *s2)
 {
 	size_t 	lens1;
@@ -30,8 +31,10 @@ char	*ft_strjoin(char *s1, char *s2)
 	size_t	i;
 	char	*str;
 
-	if (s1 || s2)
-		return (NULL);
+	if (!s1)
+		return(strdup((const char *)s2));
+	if (!s2)
+		return NULL;
 	lens1 = ft_strlen(s1);
 	lens2 = ft_strlen(s2);
 	str = malloc(sizeof(char) * (lens1 + lens2 + 1));
@@ -43,22 +46,26 @@ char	*ft_strjoin(char *s1, char *s2)
 	i = -1;
 	while (s2[++i])
 		str[i + lens1] = s2[i];
-	str[lens1] = '\0';
+	str[lens1 + i] = '\0';
+	free (s1);
 	return (str);
+
 }
 
-char	*ft_strchr(char *s)
+int	ft_strchr(char *s)
 {
 	int	i;
 
 	i = 0;
+	if (!s)
+		return (0);
 	while (s[i] != '\0')
 	{
 		if (s[i] == '\n')
 			return (1);
 		i++;
 	}
-	if (s[i] == '\n')
-		return (1);
-	return (0);
+	if (s[i] == '\0')
+		return (0);
+		return 0;
 }
