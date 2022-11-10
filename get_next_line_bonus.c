@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oryadi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 00:45:56 by oryadi            #+#    #+#             */
-/*   Updated: 2022/11/10 00:45:58 by oryadi           ###   ########.fr       */
+/*   Created: 2022/11/11 00:37:30 by oryadi            #+#    #+#             */
+/*   Updated: 2022/11/11 00:37:31 by oryadi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_line(char *str, int fd)
 {
@@ -118,15 +118,3 @@ char	*get_next_line(int fd)
 		str = ft_first(str);
 	return (line);
 }
-
-// int main()
-// {
-// 	char *s;
-// 	char *d;
-// 	int fd;
-// 	fd  = fileno(fopen ("test.txt","r"));
-// 	s = get_next_line(fd);
-// 	d = get_next_line(fd);
-// 	printf("%s",s);
-// 	printf("%s",d);
-// }
