@@ -98,7 +98,7 @@ char	*ft_first(char *s)
 		str[j] = s[j + i + 1];
 		j++;
 	}
-	str[j] = 0;
+	str[j] = '\0';
 	free (s);
 	return (str);
 }
