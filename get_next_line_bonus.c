@@ -105,16 +105,16 @@ char	*ft_first(char *s)
 
 char	*get_next_line(int fd)
 {
-	static char	*str;
+	static char	*str[1024];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	str = ft_line(str, fd);
-	if (!str)
+	str[fd] = ft_line(str[fd], fd);
+	if (!str[fd])
 		return (NULL);
-	line = ft_spliter(str);
-	if (str)
-		str = ft_first(str);
+	line = ft_spliter(str[fd]);
+	if (str[fd])
+		str[fd] = ft_first(str[fd]);
 	return (line);
 }
